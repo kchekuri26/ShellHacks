@@ -5,10 +5,9 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1284DE"
+    android:background="#FFFF99"
     android:visibility="visible"
     tools:context=".MainActivity">
-
 
 
     <ImageView
@@ -25,11 +24,11 @@
         android:layout_height="129dp"
         android:layout_marginTop="200dp"
         android:translationX="50dp"
-        app:srcCompat="@drawable/ic_baseline_healing_24" />
+        app:srcCompat="@drawable/ic_iconmonstr_medical_21" />
 
     <ImageView
         android:id="@+id/danger"
-        android:layout_width="298dp"
+        android:layout_width="300dp"
         android:layout_height="129dp"
         android:layout_marginTop="490dp"
         android:translationX="50dp"

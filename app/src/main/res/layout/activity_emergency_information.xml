@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF99"
+    tools:context=".EmergencyInformation">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="344dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/bloodType"
+        android:layout_width="344dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Blood Type"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/allergies"
+        android:layout_width="344dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:ems="10"
+        android:hint="Allergies"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/emNum1"
+        android:layout_width="344dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="Emergency Number 1"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/emNum2"
+        android:layout_width="344dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:ems="10"
+        android:hint="Emergency Number 2"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <ImageView
+        android:id="@+id/saveBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="530dp"
+        app:srcCompat="@drawable/ic_iconmonstr_save_7" />
+
+</RelativeLayout>

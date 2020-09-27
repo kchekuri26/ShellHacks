@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.helpMsg).setVisibility(View.VISIBLE);
 
                 //all the data required to send is in the onActivityResult method
-                openActivity2();
+                openActivity2("Med");
 
             }
         });
@@ -83,13 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
                 //all the data required to send is in the onActivityResult method
 
-                openActivity2();
+                openActivity2( "Emergency");
                 }
 
         });
     }
 
-    public void openActivity2() {
+    public void openActivity2( String typeEmergency ) {
+
         Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         intent.putExtra("name", name);
         intent.putExtra("stringKey2", bloodType);
@@ -98,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("stringKey4", number2);
         intent.putExtra("stringKey4", dangerText);
         intent.putExtra("stringKey4", medicalText);
+        intent.putExtra("typeEmergency", typeEmergency);
+
         MainActivity.this.startActivity(intent);
     }
 

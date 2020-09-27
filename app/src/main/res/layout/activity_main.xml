@@ -5,9 +5,11 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFF99"
+    android:background="#1284DE"
     android:visibility="visible"
     tools:context=".MainActivity">
+
+
 
     <ImageView
         android:id="@+id/editBtn"
@@ -54,4 +56,6 @@
         android:textSize="50sp"
         android:textStyle="bold"
         android:visibility="invisible" />
+
+
 </RelativeLayout>

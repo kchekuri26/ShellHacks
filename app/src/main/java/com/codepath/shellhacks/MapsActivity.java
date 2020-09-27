@@ -38,6 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public String number2 = getIntent().getStringExtra("number2");
     public String dangerText = getIntent().getStringExtra("text");
     public String medicalText = getIntent().getStringExtra("textMedical");
+    public String typeEmergency = getIntent().getStringExtra("typeEmergency");
 
 
     @Override
@@ -114,9 +115,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
 
 
+                    if (typeEmergency == "Med" ){
+                        sendFirstSMS( number1, number2, medicalText );
+                    }else if (typeEmergency == "Emergency"){
+                        sendFirstSMS( number1, number2, dangerText );
+                    }
 
 
-                    sendFirstSMS(number1, number2, "Test Message");
+
 
 
 

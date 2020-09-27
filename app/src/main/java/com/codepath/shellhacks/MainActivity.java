@@ -52,30 +52,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.medical).setOnClickListener(new View.OnClickListener() {
-                                                          @Override
-                                                          public void onClick(View v) {
-                                                              findViewById(R.id.medical).setVisibility(View.INVISIBLE);
-                                                              findViewById(R.id.danger).setVisibility(View.INVISIBLE);
-                                                              findViewById(R.id.helpMsg).setVisibility(View.VISIBLE);
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.medical).setVisibility(View.INVISIBLE);
+                findViewById(R.id.danger).setVisibility(View.INVISIBLE);
+                findViewById(R.id.helpMsg).setVisibility(View.VISIBLE);
 
-                                                              //all the data required to send is in the onActivityResult method
+                //all the data required to send is in the onActivityResult method
+                openActivity2();
 
-                                                              if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-                                                                  if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
-
-                                                                      sendSMS("9501322345", "3453535355", "Test Message");
-
-
-                                                                  } else {
-
-
-                                                                      requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-
-                                                                  }
-                                                              }
-                                                          }
-                                                      });
+            }
+        });
 
         findViewById(R.id.danger).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,42 +73,15 @@ public class MainActivity extends AppCompatActivity {
 
                 //all the data required to send is in the onActivityResult method
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                openActivity2();
+                }
 
-                    if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-
-                        sendSMS("9501322345", "3453535355", "Test Message");
-
-
-                    }else {
-
-
-                        requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
-
-                    }
-        }
-            }
         });
     }
 
-    private void sendSMS(String number1, String number2, String textMessage){
-
-       /* String number1 = data.getExtras().getString("number1");
-        String number2 = data.getExtras().getString("number2");
-        String textMessage = data.getExtras().getString("text");*/
-
-        try {
-            SmsManager smsmanager = SmsManager.getDefault();
-            smsmanager.sendTextMessage(number1, null, textMessage, null, null);
-            smsmanager.sendTextMessage(number2, null, textMessage, null, null);
-            Toast.makeText(this, "Message is sent", Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e){
-            e.printStackTrace();
-            //Run error message here!!!
-            Toast.makeText(this, "ERROR!!! CAN NOT SEND", Toast.LENGTH_SHORT).show();
-        }
-
-
+    public void openActivity2() {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
+
 }

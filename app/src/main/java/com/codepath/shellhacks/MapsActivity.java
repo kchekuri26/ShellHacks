@@ -8,7 +8,10 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -67,11 +70,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.addMarker(new MarkerOptions().position(latLng).title("My Position"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
-                    String phoneNumber = "9097212920";
-                    String myLatitude = String.valueOf(location.getAltitude());
-                    String myLongitude = String.valueOf(location.getLongitude());
 
-                    String message = "Latitude = " + myLatitude + " Longitude = " + myLongitude;
+                    upDateSMS("9518360375", "9518360375", getCurLat(location), getCurlong(location));
 
 
                 } catch(Exception e){
@@ -100,9 +100,72 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         try {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DIST, locationListener);
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DIST, locationListener);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+
+
+
+
+                    sendFirstSMS("9518360375", "9518360375", "Test Message");
+
+
+
+                } else {
+
+
+                    requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
+
+                }
+            }
 
         } catch (SecurityException e) {
             e.printStackTrace();
         }
+    }
+
+    private void sendFirstSMS(String number1, String number2, String customMessage ){
+
+       /* String number1 = data.getExtras().getString("number1");
+        String number2 = data.getExtras().getString("number2");
+        String textMessage = data.getExtras().getString("text");*/
+
+        try {
+            SmsManager smsmanager = SmsManager.getDefault();
+            smsmanager.sendTextMessage(number1, null, customMessage, null, null);
+            smsmanager.sendTextMessage(number2, null, customMessage, null, null);
+            Toast.makeText(this, "Message is sent", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e){
+            e.printStackTrace();
+            //Run error message here!!!
+            Toast.makeText(this, "ERROR!!! CAN NOT SEND", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    private void upDateSMS(String number1, String number2, String latitude, String longitude) {
+        String message = "Latitude = " + latitude + " Longitude = " + longitude;
+        try {
+            SmsManager smsmanager = SmsManager.getDefault();
+            smsmanager.sendTextMessage(number1, null, message, null, null);
+            smsmanager.sendTextMessage(number2, null, message, null, null);
+            Toast.makeText(this, "Message is sent", Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e){
+            e.printStackTrace();
+            //Run error message here!!!
+            Toast.makeText(this, "ERROR!!! CAN NOT SEND", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String getCurLat(Location location) {
+        return String.valueOf(location.getAltitude());
+
+    }
+
+    private String getCurlong(Location location) {
+        return String.valueOf(location.getLongitude());
     }
 }

@@ -14,7 +14,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:translationX="350dp"
+        android:translationX="330dp"
         app:srcCompat="@drawable/ic_iconmonstr_edit_11" />
 
     <ImageView
@@ -29,7 +29,7 @@
         android:id="@+id/danger"
         android:layout_width="298dp"
         android:layout_height="129dp"
-        android:layout_marginTop="515dp"
+        android:layout_marginTop="490dp"
         android:translationX="50dp"
         app:srcCompat="@drawable/ic_iconmonstr_danger_1" />
 

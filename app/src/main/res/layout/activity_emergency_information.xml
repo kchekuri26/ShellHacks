@@ -52,28 +52,58 @@
         android:layout_marginTop="240dp"
         android:ems="10"
         android:hint="Emergency Number 1"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="44dp" />
 
     <EditText
-        android:id="@+id/emNum2"
+    android:id="@+id/emNum2"
+    android:layout_width="344dp"
+    android:layout_height="45dp"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="310dp"
+    android:ems="10"
+    android:hint="Emergency Number 2"
+    android:inputType="phone"
+    tools:layout_editor_absoluteX="33dp"
+    tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/emMessage"
         android:layout_width="344dp"
-        android:layout_height="45dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="370dp"
         android:ems="10"
-        android:hint="Emergency Number 2"
-        android:inputType="textPersonName"
+        android:hint="Personalized message for a medical\n emergency."
+        android:gravity="top"
+        android:inputType="textLongMessage"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/emDanMessage"
+        android:layout_width="344dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="490dp"
+        android:ems="10"
+        android:hint="Personalized message for if police\n emergency."
+        android:gravity="top"
+        android:inputType="textLongMessage"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="44dp" />
+
 
     <ImageView
         android:id="@+id/saveBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="530dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="22dp"
         app:srcCompat="@drawable/ic_iconmonstr_save_7" />
 
 </RelativeLayout>

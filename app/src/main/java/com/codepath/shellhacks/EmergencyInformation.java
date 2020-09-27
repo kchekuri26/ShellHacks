@@ -23,6 +23,8 @@ public class EmergencyInformation extends AppCompatActivity {
                 String allergies = ((EditText) findViewById(R.id.allergies)).getText().toString();
                 String number1 = ((EditText) findViewById(R.id.emNum1)).getText().toString();
                 String number2 = ((EditText) findViewById(R.id.emNum2)).getText().toString();
+                String medicalText = ((EditText) findViewById(R.id.emMessage)).getText().toString();
+                String dangerText = ((EditText) findViewById(R.id.emDanMessage)).getText().toString();
 
                 Intent data = new Intent(); // create a new Intent, this is where we will put our data
                 data.putExtra("name", name); // puts one string into the Intent, with the key as 'question'
@@ -30,6 +32,8 @@ public class EmergencyInformation extends AppCompatActivity {
                 data.putExtra("allergies", allergies);
                 data.putExtra("number1", number1);
                 data.putExtra("number2", number2);
+                data.putExtra("medicalText", medicalText);
+                data.putExtra("dangerText", dangerText);
                 setResult(RESULT_OK, data); // set result code and bundle data for response
                 finish();
             }

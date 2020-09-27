@@ -31,20 +31,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private LatLng latLng;
 
-    public String userName = getIntent().getStringExtra("name"); // 'string1' needs to match the key we used when we put the string in the Intent
-    public String bloodType = getIntent().getStringExtra("bloodType");
-    public String allergies = getIntent().getStringExtra("allergies");
-    public String number1 = getIntent().getStringExtra("number1");
-    public String number2 = getIntent().getStringExtra("number2");
-    public String dangerText = getIntent().getStringExtra("text");
-    public String medicalText = getIntent().getStringExtra("textMedical");
-    public String typeEmergency = getIntent().getStringExtra("typeEmergency");
+    public String userName; // 'string1' needs to match the key we used when we put the string in the Intent
+    public String bloodType;
+    public String allergies;
+    public String number1;
+    public String number2;
+    public String dangerText;
+    public String medicalText;
+    public String typeEmergency;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        userName = getIntent().getStringExtra("name"); // 'string1' needs to match the key we used when we put the string in the Intent
+        bloodType = getIntent().getStringExtra("bloodType");
+        allergies = getIntent().getStringExtra("allergies");
+        number1 = getIntent().getStringExtra("number1");
+        number2 = getIntent().getStringExtra("number2");
+        dangerText = getIntent().getStringExtra("text");
+        medicalText = getIntent().getStringExtra("textMedical");
+        typeEmergency = getIntent().getStringExtra("typeEmergency");
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

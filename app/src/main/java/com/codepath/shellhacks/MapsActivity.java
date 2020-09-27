@@ -31,6 +31,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private LatLng latLng;
 
+    public String userName = getIntent().getStringExtra("name"); // 'string1' needs to match the key we used when we put the string in the Intent
+    public String bloodType = getIntent().getStringExtra("bloodType");
+    public String allergies = getIntent().getStringExtra("allergies");
+    public String number1 = getIntent().getStringExtra("number1");
+    public String number2 = getIntent().getStringExtra("number2");
+    public String dangerText = getIntent().getStringExtra("text");
+    public String medicalText = getIntent().getStringExtra("textMedical");
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +80,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
 
-                    upDateSMS("9518360375", "9518360375", getCurLat(location), getCurlong(location));
+                    upDateSMS(number1, number2, getCurLat(location), getCurlong(location));
 
 
                 } catch(Exception e){
@@ -107,7 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-                    sendFirstSMS("9518360375", "9518360375", "Test Message");
+                    sendFirstSMS(number1, number2, "Test Message");
 
 
 
